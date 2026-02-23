@@ -36,11 +36,11 @@ async def main():
         humanize=0.2,  # humanize=True,
         geoip=True,
 
-        # proxy={
-        #     'server': 'p.webshare.io:80',
-        #     'username': 'qdkqdkdm-rotate',
-        #     'password': '3svuyjp6xuje',
-        # }
+        proxy={
+            "server": "104.234.127.10:47568",
+            "username": "BHVTZ9TQ",
+            "password": "EBD8SU4H",
+        }
     ) as browser:
         # page = browser.pages[-1] if browser.pages else 
         page = await browser.new_page()
