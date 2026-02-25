@@ -33,7 +33,7 @@ const run = async () => {
   await page.waitForSelector("circle");
 
   let count = 0;
-  while (count < 100) {
+  while (count < 50) {
     // await page.realCursor.click("circle")
 
     // mouse click
@@ -43,31 +43,31 @@ const run = async () => {
     const y = boundingBox.y + boundingBox.height / 2;
     await page.mouse.click(x, y);
 
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 500));
     count++;
   }
 
-  await new Promise((r) => setTimeout(r, 5000));
+  // await new Promise((r) => setTimeout(r, 5000));
 
-  let token = null;
-  let startDate = Date.now();
-  while (!token && Date.now() - startDate < 30000) {
-    token = await page.evaluate(() => {
-      try {
-        let item = document.querySelector(
-          '[name="cf-turnstile-response"]',
-        ).value;
-        return item && item.length > 20 ? item : null;
-      } catch (e) {
-        return null;
-      }
-    });
-    await new Promise((r) => setTimeout(r, 1000));
-  }
+  // let token = null;
+  // let startDate = Date.now();
+  // while (!token && Date.now() - startDate < 30000) {
+  //   token = await page.evaluate(() => {
+  //     try {
+  //       let item = document.querySelector(
+  //         '[name="cf-turnstile-response"]',
+  //       ).value;
+  //       return item && item.length > 20 ? item : null;
+  //     } catch (e) {
+  //       return null;
+  //     }
+  //   });
+  //   await new Promise((r) => setTimeout(r, 1000));
+  // }
 
-  await new Promise((r) => setTimeout(r, 5000));
+  // await new Promise((r) => setTimeout(r, 5000));
 
-  console.log("Token:", token);
+
 
   await page.screenshot({ path: "screen.png" });
 
