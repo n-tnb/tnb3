@@ -43,7 +43,7 @@ const run = async () => {
     const y = boundingBox.y + boundingBox.height / 2;
     await page.mouse.click(x, y);
 
-    await new Promise((r) => setTimeout(r, 100));
+    await new Promise((r) => setTimeout(r, 1000));
     count++;
   }
 
@@ -71,7 +71,8 @@ const run = async () => {
 
   await page.screenshot({ path: "screen.png" });
 
-  //   await browser.close();
+  await browser.close();
 };
 
 run();
+
